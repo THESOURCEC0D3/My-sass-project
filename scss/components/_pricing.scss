@@ -1,0 +1,122 @@
+@use '../mixins/breakpoint' as v;
+@use '../mixins/pricingmix' as p;
+
+#price-section{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url('../assets/images/building.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    text-align: center;
+    padding: 1em 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+     #overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.445);
+        z-index: 1;
+    }
+
+    h2{
+        position: relative;
+        z-index: 999;
+        color: white;
+        font-size: 52px;
+        font-family: 'Stack Sans Notch', sans-serif;
+
+        span{
+            color: rgba(223, 255, 41, 1);
+        }
+    }
+
+    p{
+        position: relative;
+        z-index: 999;
+        color: white;
+    }
+
+    #pricing-cards{
+        position: relative;
+        z-index: 999;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+
+        .card1{
+            @include p.pricing;
+            button{
+                padding-block: 1em;
+                border-radius: 40px;
+                border: none;
+                color: purple;
+                font-size: 18px;
+                font-weight: bold;
+                background-color: rgba(255, 255, 255, 0.966);
+                cursor: pointer;
+
+            }
+        }
+
+        .card2{
+            @include p.pricing;
+              button{
+                padding-block: 1em;
+                border-radius: 40px;
+                border: none;
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+                background-color: purple;
+                cursor: pointer;
+                
+
+            }
+        }
+
+        .card3{
+            @include p.pricing;
+              button{
+                padding-block: 1em;
+                border-radius: 40px;
+                border: none;
+                color: purple;
+                font-size: 18px;
+                font-weight: bold;
+                background-color: rgb(255, 255, 255);
+                cursor: pointer;
+
+            }
+        }
+    }
+
+    @include v.breakpoint("small"){
+        #pricing-cards{
+            flex-direction: column;
+            justify-content: center;
+            width: 60%;
+            align-items: center;
+            margin: auto;
+
+            .card{
+                width: 100%;
+            }
+        }
+    }
+
+    @include v.breakpoint("mid-small"){
+        #pricing-cards{
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
